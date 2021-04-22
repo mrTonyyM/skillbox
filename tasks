@@ -1,0 +1,101 @@
+# n = int(input())
+# arr1 = [int(i) for i in input().split()]
+# arr2 = [int(j) for j in input().split()]
+# print(arr2)
+# for i in range(n):
+# 	print(arr1[i], end=' ')
+# 	print(arr2[i], end=' ')
+
+# val = [i for i in input()]
+# val.reverse()
+# if val[-1] == '-':
+#     val = val[:-1]
+#     val.insert(0,'-')
+# print(int(''.join(val)))
+
+# n = int(input())
+# id_s = [int(i) for i in input().split()]
+# mis = []
+# for i in range(1,n+1):
+#     if i not in id_s:
+#         mis += [i]
+#
+# mis.sort()
+# for i in mis:
+#     print(i, end=' ')
+
+# M = []
+# vector = []
+# sign = -1
+# n = int(input())
+# for i in range(n):
+#     M += [int(j) for j in input().split()]
+# t = (n - 1)//2
+# index_aux = (n + 1) * t
+# vector += [M[index_aux]]
+# for i in range(1, n+1):
+#     for j in range(0, i):
+#         if index_aux == 0 : break
+#         index_aux += sign*n
+#         vector += [M[index_aux]]
+#
+#     sign *= -1
+#     for k in range(0,i):
+#         if index_aux == 0 : break
+#         index_aux += sign
+#         vector += [M[index_aux]]
+# for i in vector:
+#     print(i)
+
+# n = int(input())
+# result = []
+# fishkis = [int(i) for i in input().split()]
+# num = int(input())
+#
+# for  i in range(n):
+#     buf_list = fishkis[:]
+#     buf_list.remove(fishkis[i])
+#     if (num - fishkis[i]) in buf_list:
+#         result += [fishkis[i]]
+#         result += [num - fishkis[i]]
+#         break
+# if len(result) == 0:
+#     print('None')
+# else:
+#     result.sort()
+#     for i in result:
+#         print(i, end=' ')
+
+# st = input('ввести строку: ')
+# sign = input('ввести символ: ')
+# newst = [ch*2 for ch in st]
+# newnewst = [sh+sign for sh in newst]
+# print(newst)
+# print(newnewst)
+
+# list_price = [float(input('ввести список цен: ')) for price in range(5)]
+# interest_one_year = int(input('ввести повышение через год: '))
+# interest_two_year = int(input('ввести повышение на второй год: '))
+# list_price_in_one_year = [price * (1 + interest_one_year/100) for price in list_price]
+# list_price_in_two_year = [price * (1 + interest_two_year/100) for price in list_price_in_one_year]
+# print(sum(list_price), sum(list_price_in_one_year), sum(list_price_in_two_year))
+
+# original_prices = [1.25, -9.45, 10.22, 3.78, -5.92, 1.16]
+# new_prices = [price if price > 0 else 0 for price in original_prices]
+# print(new_prices)
+
+# a, b = int(input('first value')), int(input('second value'))
+# even = [(val)for val in range(a, b) if val % 2 == 0]
+# print(even)
+
+# flag = False
+# pred_val = int(input(' Введите число: '))
+# for i in range(9):
+#   val = int(input(' Введите число: '))
+#   if val - pred_val < 0:
+#     print(' последовательность не упорядочена')
+#     flag = True
+#     break
+# 
+# if flag == False:
+#   print(' последовательность упорядочена')
