@@ -1,0 +1,386 @@
+# Пример:
+# 
+# Введите первое число: 10
+# Введите второе число: 5
+# 
+# Наибольшее число: 10
+
+import math
+first = float(input('Введите первое число: '))
+second = float(input('Введите второе число: '))
+
+result = ((first + second) + math.fabs(first - second))/2
+print(f'Наибольшее число: {result}')
+
+
+# 0 2 4 6  8  10
+# 1 3 5 7  9  11
+# 2 4 6 8  10 12
+# 3 5 7 9  11 13
+# 4 6 8 10 12 14
+# 5 7 9 11 13 15
+# 
+# Помогите Степану реализовать такую программу.
+# Подсказка: номера столбцов. А ещё не забудьте про литерал \t для табуляции
+
+for i in range(6):
+  for k in range(0,11,2):
+    print(i + k, end='\t')
+  print()
+  
+# Введите число: 5
+# 1
+# 2 2
+# 3 3 3
+# 4 4 4 4
+# 5 5 5 5 5
+
+n = int(input('Введите число: '))
+for i in range(1,6):
+  for k in range(1,6):
+    if k > i:
+      print(' ',end='\t')
+    elif k <= i:
+      print(i, end='\t')
+  print()
+  
+ #  _ _ _ _ _ _ _ _ _
+# |                 |
+# |                 |
+# |                 |
+# |                 |
+# |                 |
+# |                 |
+# |_ _ _ _ _ _ _ _ _|
+
+
+width = int(input(' Введи ширину: '))
+hieght = int(input(' Введи высоту: '))
+for i in range(hieght):
+  for k in range(width):
+    if i == 0 or i == hieght-1:
+      print('-', end=' ')
+    elif k == 0 or k == width - 1:
+      print('|', end=' ')
+    else:
+      print(' ',end=' ')  
+    
+  print()
+  
+  
+  # ^        ^
+#  ^      ^ 
+#   ^    ^  
+#    ^  ^   
+#     ^^    
+#     ^^    
+#    ^  ^   
+#   ^    ^  
+#  ^      ^ 
+# ^        ^
+
+for i in range(10):
+  for k in range(10):
+    if i == k:
+      print('^',end='')
+    elif k == 9 - i:
+      print('^', end='')
+    else:
+      print(' ', end='')
+  print()
+ 
+ #Напишите программу,
+#которая считает количество простых чисел в заданной последовательности 
+#и выводит ответ на экран.
+
+count_comp = 0
+count = 0
+while True:
+  print('Для выхода из программы введите 0')
+  val = int(input('Введите число: '))
+  if val == 0:
+    break
+  else:
+    count += 1
+    for i in range(2,val):
+      if val % i == 0:
+        count_comp += 1
+        break    
+    if val == 1:
+      count_comp += 1    
+print('Кол-во простых чисел -', count - count_comp)
+
+
+# Напишите программу,
+# которая запрашивает у пользователя число N
+# и находит сумму факториалов 1! + 2! + 3! +... + N! 
+
+sum_fak = 0
+N = int(input('Ввести N: '))
+for i in range(1, N+1):
+  fak = 1
+  for k in range(1, i+1):
+    fak *= k
+  print(fak)
+  sum_fak += fak
+print('Сумма факториалов -', sum_fak)
+
+# Вводится N чисел. 
+# Среди натуральных чисел, которые были введены, 
+# найдите наибольшее по сумме цифр. Выведите на экран это число и сумму его цифр.
+
+max_val = 0
+max_sum = 0
+N = int(input('Введите число вводимых чисел: '))
+for i in range(N):
+  val = input('Введите натуральное число: ')
+  sum_digit = 0
+  for digit in val:
+    sum_digit += int(digit)
+  if max_sum < sum_digit:
+    max_sum = sum_digit
+    max_val = val
+print('Максимальное по сумме цифр число -',  max_val, 'и его сумма =', max_sum)
+
+
+   #
+  ###
+ #####
+#######
+
+height = int(input('Введите высоту пирамидки: '))
+for i in range(height):
+  for k in range(height,i,-1):
+    print(' ', end='')
+  print('#'*(2*i+1), end='')
+  print()
+ 
+ #             1
+#          3     5
+#       7     9     11
+#    13    15    17    19
+# 21    23    25    27    29
+
+count = 0
+height = int(input('Введите высоту пирамидки: '))
+for i in range(height):
+  for k in range(height,i,-1):
+    print(' ', end=' ')
+  for z in range(i+1):
+    print(2*count+1, end='  ')
+    count += 1
+  print()
+  
+# 5........5
+# 54......45
+# 543....345
+# 5432..2345
+# 5432112345
+N = int(input('Введите число: '))
+for i in range(N):
+  for k in range(2*N):
+    if i == k or k == 2*N-1-i:
+      print(N-i, end='')
+    elif i>k :
+      print(N-k, end='')
+    elif k > 2*N-1-i:
+      print(k-N+1, end='')   
+    else:
+      print('.', end='')
+  print()
+  
+# Напишите программу,
+# которая принимает от пользователя день недели в виде строки и выводит его номер на экран.
+# 
+# Пример:
+# Введите день недели: вторник
+# Номер дня недели: 2
+day = input('Введите день недели: ')
+index = 0
+for weekday in ('понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'):
+  index += 1
+  if day == weekday:
+    print('Номер дня недели: ',index)
+    break
+else:
+  print(' Вы ввели не правильные данные.')
+
+# Пользователь вводит 10 слов. 
+# 
+# Напишите программу,
+# которая определяет, сколько из них совпадают со словом “Карамба”.
+
+count_caramba = 0
+for _ in range(10):
+  word = input(' Введите слово ')
+  if word.lower() == 'карамба':
+    count_caramba += 1
+
+print(f'{count_caramba} совпадений со словом "Карамба"')
+
+# Пример:
+# Введите текст: Пр*ивет как дела
+# Символ ‘*’ стоит на позиции 3
+
+text = input('Введите текст: ')
+for index, char in enumerate(text):
+  if char == '*':
+    print(f'Символ ‘*’ стоит на позиции {index+1}')
+
+# ======= *** =======
+# ======= *** =======
+# ======= *** =======
+# ======= *** =======
+# ======= *** =======
+
+print('Сцена')
+row = int(input('Введите кол-во рядов: '))
+amchair =int(input('Введите кол-во сидений ряду: '))
+space = int(input('Введите кол-во метров между рядами: '))
+for i in range(row):
+  print("="*amchair, end=' ')
+  print('*'*space, end=' ')
+  print('='*amchair)
+
+# Пример:
+# 
+# [Программа]: Марсоход находится на позиции 6, 19, введите команду:
+# [Оператор]: A
+# [Программа]: Марсоход находится на позиции 5, 19, введите команду:
+# [Оператор]: W
+# [Программа]: Марсоход находится на позиции 5, 20, введите команду:
+# [Оператор]: W
+# [Программа]: Марсоход находится на позиции 5, 20, введите команду:
+x,y = 8,10
+while True:
+  print(f'[Программа]: Марсоход находится на позиции {x}, {y}, введите команду:')
+
+  direct = input('[Оператор]: ')
+  if (direct == 'W') and (0 <= y < 20 ):
+    y += 1
+  elif direct == 'S' and (0 < y <= 20 ):
+    y -= 1
+  elif direct == 'A' and (0 < x <= 15 ):
+    x -= 1
+  elif direct == 'D' and (0 <= x < 15 ):
+    x += 1
+  elif direct != 'W' and direct != 'S' and direct != 'A' and direct != 'D':
+    break
+
+# Напишите программу,
+# которая получает на вход строку,
+# подсчитывает в ней самую длинную последовательность подряд идущих букв “s” и выводит ответ на экран.
+# 
+# Пример:
+# Введите строку: ssbbbsssbc
+# Самая длинная последовательность: 3
+string = input('Введите строку: ')
+countS = 0
+count = 0
+for char in string:  
+  if char != 's':
+    if count < countS: count = countS
+    countS = 0
+    continue
+  else:
+    countS += 1
+if count < countS: count = countS
+print('Самая длинная последовательность: ', count)
+
+# Напишите программу,
+# которая получает на вход текст и находит длину самого длинного слова в нём.
+# Слова в тексте разделяются одним пробелом.
+# 
+# Пример:
+# Введите текст: Меня зовут Петр
+# Длина самого длинного слова: 5
+
+text = input('Введите текст: ')
+countL = 0
+for word in text.split():
+  print(word)
+  if countL < len(word):
+    countL = len(word)
+print('Длина самого длинного слова: ', countL)
+
+
+n_sym = int(input('Введите общую длину колонтитула в символах: '))
+n_sign = int(input(' Желаемое кол-во восклицательных знаков: '))
+
+n_sym = (n_sym - n_sign)//2
+print('~'*n_sym, end='')
+print('!'*n_sign, end='')
+print('~'*n_sym, end='')
+print()
+
+# Для коров есть 10 стойл.
+# В каждом стойле разные условия для животных, поэтому и молока они дают по-разному.
+# В первом стойле производят 2 литра в день,
+# во втором 4, 
+# в третьем - 6, потом 8, 10, 12, 14, 16, 18, 20. 
+# Но коровы стоят не во всех стойлах. 
+# Свободные и занятые обозначаются строкой из букв a и b,
+# где a - свободное стойло, b - занятое.
+# 
+# Пользователь вводит строку из 10 символов a и b.
+# Необходимо определить, сколько в итоге будет произведено молока за день.
+
+data = input(' Введите последовательность: ')
+milk = 0
+for k, stall in enumerate(data):
+  if stall == 'b':
+    milk += (k+1) * 2
+print(' Произведенно молока', milk)
+
+# Пример:
+# Введите зашифрованное сообщение: shacnidw
+# Расшифрованное сообщение: sandwich
+#          1   3   5   7   8   6   4   2
+# Слово: | s | a | n | d | w | i | c | h |
+#
+# Шифр:  | s | h | a | c | n | i | d | w |
+
+text1 = input('Введите зашифрованное сообщение: ')
+text2 = ''
+count = 0
+for sym in (text1):
+  count += 1
+  if count % 2 != 0:
+    print(sym, end='')
+  else:
+    text2 = sym + text2
+print(text2)
+
+
+# Пример 2:
+# 
+# Введите кол-во мальчиков: 5
+# Введите кол-во девочек: 3
+# Ответ: BGBGBBGB
+# 
+# Пример 3:
+# 
+# Введите кол-во мальчиков: 100
+# Введите кол-во девочек: 1
+# Ответ: Нет решения
+
+boys = int(input('Введите кол-во мальчиков: '))
+girls = int(input('Введите кол-во девочек: '))
+res = ''
+if (girls / boys > 2) or (boys / girls > 2):
+  print('Ответ: Нет решения')
+
+elif boys >= girls:
+  for i in range(boys - girls):
+    res += 'BGB'
+  for i in range(girls - (boys - girls)):
+    res += 'BG'
+  print('Ответ: ', res)
+else:
+  for i in range(girls - boys):
+    res += 'GBG'
+  for i in range(boys - (girls - boys)):
+    res += 'GB'
+  print('Ответ: ', res)
+
+  
